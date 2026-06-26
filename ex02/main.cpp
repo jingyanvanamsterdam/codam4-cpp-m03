@@ -1,4 +1,5 @@
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include <iostream>
 #include <string>
@@ -17,26 +18,31 @@ int main(void)
 {
     std::cout << "=== Test for constructor ===" << std::endl;
     ClapTrap base("Clap");
-    ScavTrap scav("Scav");
+    FragTrap frag("Frag");
+	ScavTrap scav("Scav");
     printData(base);
-    printData(scav);
+    printData(frag);
+	printData(scav);
 
     std::cout << "=== Test for attack ===" << std::endl;
-	ScavTrap a("s-1");
-	a.attack("Scav");
-	base.attack("Scav");
-	scav.takeDamage(a.getAttackdamage());
+	FragTrap a("f-1");
+	a.attack("Frag");
+	base.attack("Frag");
+	frag.takeDamage(a.getAttackdamage());
+	scav.attack("Frag");
+	frag.takeDamage(scav.getAttackdamage());
 	printData(a);
+	printData(frag);
 	printData(scav);
 
 	std::cout << "=== Test for repair ===" << std::endl;
 	a.beRepaired(20);
-	scav.beRepaired(10);
+	frag.beRepaired(10);
 	printData(a);
-	printData(scav);
+	printData(frag);
 	
-	std::cout << "=== Test for guard ===" << std::endl;
-	scav.guardGate();
+	std::cout << "=== Test for highFive ===" << std::endl;
+	frag.highFivesGuys();
 
     return 0;
 }
