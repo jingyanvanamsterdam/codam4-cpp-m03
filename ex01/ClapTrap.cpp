@@ -8,9 +8,17 @@ ClapTrap::ClapTrap(void)
 	  _energyptr(10),
 	  _attackdamage(0)
 {
-	std::cout << GREEN << "Default constructor called" << RESET << std::endl;
+	std::cout << GREEN << "Default  constructor called" << RESET << std::endl;
 } 
 
+//ClapTrap::ClapTrap(const std::string n, unsigned int hit, unsigned int energy, unsigned int damage)
+//	: _name(n),
+//	  _hitptr(hit),
+//	  _energyptr(energy),
+//	  _attackdamage(damage)
+//{
+//	std::cout << GREEN << "Constructor called" << RESET << std::endl;
+//}
 ClapTrap::ClapTrap(const std::string n)
 	: _name(n),
 	  _hitptr(10),
@@ -37,6 +45,11 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& oth)
 		this->_attackdamage = oth.getAttackdamage();
 	}
 	return (*this);
+}
+
+ClapTrap::~ClapTrap()
+{
+	std::cout << RED << "Desctructor called." << RESET << std::endl;
 }
 
 std::string		ClapTrap::getName() const
@@ -72,10 +85,7 @@ void			ClapTrap::setAttackdamage(unsigned int nbr)
 {
 	this->_attackdamage = nbr;
 }
-ClapTrap::~ClapTrap()
-{
-	std::cout << RED << "Desctructor called." << RESET << std::endl;
-}
+
 
 void ClapTrap::attack(const std::string& target)
 {
