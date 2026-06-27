@@ -3,12 +3,18 @@
 #include <string>
 #include <iostream>
 
+static void init_print(ScavTrap& obj)
+{
+	std::cout << "In constructor: " << obj.getHitptr() <<", " << obj.getEnergyptr() << ", " << obj.getAttackdamage() << ".\n" << std::endl;
+}
+
 ScavTrap::ScavTrap(void)
 {
 	std::cout << GREEN << "Default ScavTrap constructor called" << RESET << std::endl;
 	this->_hitptr = 100;
 	this->_energyptr = 50;
 	this->_attackdamage = 20;
+	init_print(*this);
 } 
 
 
@@ -19,13 +25,8 @@ ScavTrap::ScavTrap(const std::string n)
 	this->_hitptr = 100;
 	this->_energyptr = 50;
 	this->_attackdamage = 20;
+	init_print(*this);
 }
-// 如果为了封装更好，可以吧剩下三个值也作为ClapTrap的parameters。
-//ScavTrap::ScavTrap(const std::string n)
-//	: ClapTrap(n, 100, 50, 20)
-//{
-//	std::cout << GREEN << "ScavTrap Constructor called" << RESET << std::endl;
-//}
 
 ScavTrap::ScavTrap(const ScavTrap& oth)
 {

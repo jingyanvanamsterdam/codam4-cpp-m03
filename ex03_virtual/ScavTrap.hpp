@@ -1,0 +1,19 @@
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+
+#include "ClapTrap.hpp"
+
+class ScavTrap: virtual public ClapTrap
+{
+	public:
+		ScavTrap(void);
+		ScavTrap(const std::string n);
+		ScavTrap(const ScavTrap& oth);
+		ScavTrap& operator=(const ScavTrap& oth);
+
+		~ScavTrap();
+		void attack(const std::string& target);
+		void guardGate();
+};
+
+#endif

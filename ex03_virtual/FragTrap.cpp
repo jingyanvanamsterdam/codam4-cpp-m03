@@ -3,12 +3,18 @@
 #include <string>
 #include <iostream>
 
+static void init_print(FragTrap& obj)
+{
+	std::cout << "In constructor: " << obj.getHitptr() <<", " << obj.getEnergyptr() << ", " << obj.getAttackdamage() << ".\n" << std::endl;
+}
+
 FragTrap::FragTrap(void)
 {
 	std::cout << GREEN << "Default FragTrap constructor called" << RESET << std::endl;
 	this->_hitptr = 100;
 	this->_energyptr = 100;
 	this->_attackdamage = 30;
+	init_print(*this);
 } 
 
 
@@ -19,6 +25,7 @@ FragTrap::FragTrap(const std::string n)
 	this->_hitptr = 100;
 	this->_energyptr = 100;
 	this->_attackdamage = 30;
+	init_print(*this);
 }
 
 FragTrap::FragTrap(const FragTrap& oth)

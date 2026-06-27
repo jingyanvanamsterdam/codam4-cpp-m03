@@ -20,12 +20,6 @@ ScavTrap::ScavTrap(const std::string n)
 	this->_energyptr = 50;
 	this->_attackdamage = 20;
 }
-// 如果为了封装更好，可以吧剩下三个值也作为ClapTrap的parameters。
-//ScavTrap::ScavTrap(const std::string n)
-//	: ClapTrap(n, 100, 50, 20)
-//{
-//	std::cout << GREEN << "ScavTrap Constructor called" << RESET << std::endl;
-//}
 
 ScavTrap::ScavTrap(const ScavTrap& oth)
 {
